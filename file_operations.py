@@ -2,9 +2,9 @@ import os
 import glob
 from tkinter import filedialog
 
-def select_html_files():
-    # Open a file selection dialog and return the selected files
-    return filedialog.askopenfilenames(filetypes=[('HTML Files', '*.html')])
+def select_directory():
+    # Open a directory selection dialog and return the selected directory
+    return filedialog.askdirectory()
 
 def get_html_files(directory):
     # Get a list of all HTML files in the selected directory and return it

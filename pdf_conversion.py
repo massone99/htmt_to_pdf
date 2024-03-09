@@ -2,6 +2,7 @@ import os
 import subprocess
 import shlex
 from file_operations import delete_file_if_exists
+from file_operations import get_html_files
 
 def convert_html_to_pdf(html_file, pdf_file, options):
     # Define the path to the wkhtmltopdf executable
@@ -12,8 +13,9 @@ def convert_html_to_pdf(html_file, pdf_file, options):
 
 from tkinter import messagebox
 
-def convert_all_html_to_pdf(progress, options_entry, select_html_files, root):
-    html_files = select_html_files()
+def convert_all_html_to_pdf(progress, options_entry, select_directory, root):
+    directory = select_directory()
+    html_files = get_html_files(directory)
 
     # Parse the options from the entry field
     options = shlex.split(options_entry.get())
